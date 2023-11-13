@@ -1,8 +1,9 @@
 package textGame;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Room {
+public class Room implements Serializable{
 
 	private String description;
 	private Room east;
@@ -13,14 +14,16 @@ public class Room {
 	private Room down;
 	private boolean locked; //is room locked?
 	private String name;
+	private String roomID;
 	
 	private HashMap<String, Item> roomItems;
 	
-	public Room(String n, String d) {
+	public Room(String n) {
 		name = n;
-		description = d;
+		roomID = n;
 		roomItems = new HashMap<String, Item>();
 		locked = false;
+		World.rooms.put(name, this);
 	}
 	
 	public String getName() {
@@ -45,6 +48,18 @@ public class Room {
 	
 	public void addItem(Item i) {
 		roomItems.put(i.getName(), i);
+	}
+	
+	public String getDesc() {
+		return World.desc.get(roomID);
+	}
+	
+	public void setRoomID(String id) {
+		roomID = id;
+	}
+	
+	public String getRoomID() {
+		return roomID;
 	}
 	
 	public Room getExit(String d) {

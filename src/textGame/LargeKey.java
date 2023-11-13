@@ -7,18 +7,19 @@ public class LargeKey extends Item {
 	}
 	
 	public void use() {
-		if(game.getCurrentRoom().getName().equals("lobby")) {
+		if(game.getCurrentRoom().getName().equals("BACKSTAGE")) {
 			if(isUsed()) 
-				System.out.println("The chest is already open"); 
+				game.print("The chest is already open"); 
 			else {
-				System.out.println("You use the key on the large chest. It opens up and you find a diamond.");
-				Item diamond = new Item("diamond");
-				diamond.setDesc("Sparkly.");
-				game.getCurrentRoom().addItem(diamond);
+				game.print("You use the key on the large chest. It opens up and you find a diamond.");
+				Item exitKey = new Item("exitKey");
+				exitKey.setDesc("A key with significant importance to your journey.");
+				game.getCurrentRoom().addItem(exitKey);
 				setUsed(true);
+
 				}
 		} else {
-			System.out.println("The key serves no purpose here.");
+			game.print("The key serves no purpose here.");
 		}
 	}
 }

@@ -1,6 +1,8 @@
 package textGame;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable{
 
 	private String name;
 	private String description;
@@ -45,6 +47,15 @@ public class Item {
 	
 	public void use() {
 		System.out.println("You cant use this item...yet.");
+	}
+	
+	public void take() {
+		if(heavy)
+			System.out.println("Thats too heavy to carry around.");
+		else {
+			game.inventory.add(game.getCurrentRoom().removeItem(name));
+			System.out.println("You picked up "+ name +"!");
+			}
 	}
 	
 	public String toString() {

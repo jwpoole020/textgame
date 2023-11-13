@@ -1,0 +1,45 @@
+LOBBY
+The lobby is a large room.  The exit is to the south.  There are doors north leading to the theater.  A locked door to the east leads to the kitchen.  A door to the west leads to the west hallway.
+#
+THEATER
+The theater has a large screen in the back of the room. Nothing seems to be playing. An old key rests on a chair nearby.  The door to the south leads to the lobby. An emergency exit to the west leads to the back alley.
+#
+THEATER_A
+The theater has a large screen in the back of the room. Nothing seems to be playing.  The door to the south leads to the lobby. An emergency exit to the west leads to the back alley.
+#
+THEATER_B
+The theater has a large screen in the back of the room. An old zombie movie seems to playing on the screen. An old key rests on a chair nearby. The door to the south leads to the lobby. An emergency exit to the west leads to the back alley.
+#
+THEATER_C
+The theater has a large screen in the back of the room. An old zombie movie seems to playing on the screen.  The door to the south leads to the lobby. An emergency exit to the west leads to the back alley.
+#
+THEATER_D
+The theater has a large screen in the back of the room. An old zombie movie seems to playing on the screen.  An old key rests on a chair nearby. The door to the south leads to the lobby. An emergency exit to the west leads to the back alley. There seems to be a door to the north.
+#
+THEATER_E
+The theater has a large screen in the back of the room. An old zombie movie seems to playing on the screen.  The door to the south leads to the lobby. An emergency exit to the west leads to the back alley. There seems to be a door to the north.
+#
+HALLWAY
+A long, dark hallway is lit by only a single lamp. The door at the end of the  hallway to the west leads to the back alley.  Stairs lead up to the projector room.  The door to the north leads to the  bathroom.  The door east leads to the lobby. 
+#
+BATHROOM
+The bathroom looks like it hasn't been cleaned in a while. On the sink lies an old newspaper. The door south leads back the hallway.  
+#
+ALLEYWAY
+You are fenced in the back alleyway with no exit still in sight. An old movie reel pokes out of some garbage.  The door to the north leads to the theater room. The door to the east leads to a hallway.
+#
+KITCHEN
+The kitchen smells like popcorn and candy. A large key sits in the sink. A bag full of popcorn sits in the trash. The door to the west leads back to the lobby. 
+#
+MAINTENSE
+The projector room is full of old machines. A projector sits in front of a window facing the theater. It lies still and lifeless. The stairs down take you back to the hallway.
+#
+LOUNGE
+The lounge is fairly nice. All the chairs are in poor condition. A table in the corner has some loose change, but the only coin you recognize is a quarter. The door west leads to an arcade.
+#
+ARCADE
+The arcade seems to be run down.  Only one of the machines seems to be turned on. The door west leads back to the lounge.
+#
+BACKSTAGE 
+A dark room you found in behind the movie screen. A chest sits in the corner. The door south leads to the theater. 
+#

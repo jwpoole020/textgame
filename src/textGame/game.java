@@ -1,10 +1,19 @@
 package textGame;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
 import java.util.Scanner;
 public class game {
 
 	private static Room currentRoom;
-	private static ArrayList<Item> inventory = new ArrayList<Item>();
+	public static ArrayList<Item> inventory = new ArrayList<Item>();
+
 	
 	public static Room getCurrentRoom() {
 		return currentRoom; 
@@ -17,10 +26,12 @@ public class game {
 		
 		currentRoom = World.buildWorld();
 		
+		game.print("You are trapped in an old movie theater.  Try to find a way to escape.");
 		do {
 			String itemName="";
 			String[] words;
-			System.out.print("You are in the " + currentRoom.getName()+". What do you wish to do? ");
+			print(currentRoom.getDesc());
+			print("You are in the " + currentRoom.getName()+". What do you wish to do? ");
 			String input=scan.nextLine();
 			if(input.contains(" ")) {
 				words= input.split(" ");
@@ -52,16 +63,11 @@ public class game {
 				if(!itemName.equals("")) {
 					if(currentRoom.hasItem(itemName)) {
 						Item item = currentRoom.getItem(itemName);
-						if(item.isHeavy())
-							System.out.println("Thats too heavy to carry around.");
-						else {
-							inventory.add(currentRoom.removeItem(itemName));
-							System.out.println("You picked up "+itemName+"!");
-							}
-						} else {
-							System.out.println("There is no "+itemName+"!");
-						}
+						item.take();
+					} else {
+						System.out.println("There is no "+itemName+"!");
 					}
+				}
 				
 				break;
 			case "i":
@@ -90,6 +96,12 @@ public class game {
 			case "x":
 				System.out.println("See ya.");
 				break;
+			case "save":
+				saveGame();
+				break;
+			case "load":
+				loadGame();
+				break;
 			default:
 				System.out.println("Error");
 			}
@@ -111,6 +123,36 @@ public class game {
 	}
 	
 
+	public static void saveGame() {
+		File saveFile = new File("save");
+		try {
+			saveFile.createNewFile();
+			ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(saveFile));
+			stream.writeObject(currentRoom);
+			stream.writeObject(inventory);
+			stream.writeObject(World.rooms);
+			stream.close();
+		} catch (IOException e) {
+			print("error: cannot save file!");
+		}
+	}
+	
+	public static void loadGame() {
+		try {
+			ObjectInputStream stream = new ObjectInputStream(new FileInputStream(new File("save")));
+			try {
+				currentRoom = (Room) stream.readObject();
+				inventory = (ArrayList<Item>) stream.readObject();
+				World.rooms = (HashMap<String, Room>) stream.readObject();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void take(String i) {
 		if(currentRoom.hasItem(i)) {
@@ -129,4 +171,13 @@ public class game {
 	public static void removeItem(Item i) {
 		inventory.remove(i);
 	}
+	
+	public static void addRooms(String s) {
+		try {
+			Scanner findRoom = new Scanner(new File(s));
+		} catch (FileNotFoundException ex) {
+			System.out.println("File not found.");
+		}
+	}
+	
 }
