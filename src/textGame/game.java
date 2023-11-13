@@ -31,7 +31,6 @@ public class game {
 			String itemName="";
 			String[] words;
 			print(currentRoom.getDesc());
-			print("You are in the " + currentRoom.getName()+". What do you wish to do? ");
 			String input=scan.nextLine();
 			if(input.contains(" ")) {
 				words= input.split(" ");
