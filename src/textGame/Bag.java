@@ -12,6 +12,8 @@ public class Bag extends Item{
 					+ "When the movie is over you hear a click sound from behind the screen.");
 			game.removeItem(game.getItem("bag"));
 			World.rooms.get("backStage").setLocked(false);
+		} else {
+			game.print("This bag of popcorn looks delicous but you shouldn't eat it just yet.");
 		}
 	}
 }

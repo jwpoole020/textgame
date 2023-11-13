@@ -1,6 +1,9 @@
 LOBBY
 The lobby is a large room.  The exit is to the south.  There are doors north leading to the theater.  A locked door to the east leads to the kitchen.  A door to the west leads to the west hallway.
 #
+LOBBY_A
+The lobby is a large room.  The exit is to the south.  There are doors north leading to the theater.  A locked door to the east leads to the kitchen.  A door to the west leads to the west hallway. The exit door to the south seems to be unlocked.
+#
 THEATER
 The theater has a large screen in the back of the room. Nothing seems to be playing. An old key rests on a chair nearby.  The door to the south leads to the lobby. An emergency exit to the west leads to the back alley.
 #
@@ -43,3 +46,6 @@ The arcade seems to be run down.  Only one of the machines seems to be turned on
 BACKSTAGE 
 A dark room you found in behind the movie screen. A chest sits in the corner. The door south leads to the theater. 
 #
+EXIT
+You have successfully escaped the movie theater!
+# 

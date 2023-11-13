@@ -3,7 +3,7 @@ package textGame;
 public class DoorKey extends Item {
 
 	public DoorKey() {
-		super ("doorkey");
+		super ("oldkey");
 	}
 	
 	@Override

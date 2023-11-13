@@ -12,7 +12,7 @@ public class LargeKey extends Item {
 				game.print("The chest is already open"); 
 			else {
 				game.print("You use the key on the large chest. It opens up and you find a diamond.");
-				Item exitKey = new Item("exitKey");
+				Item exitKey = new ExitKey();
 				exitKey.setDesc("A key with significant importance to your journey.");
 				game.getCurrentRoom().addItem(exitKey);
 				setUsed(true);

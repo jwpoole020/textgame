@@ -16,6 +16,7 @@ public class arcadeMachine extends Item{
 				game.removeItem(game.getItem("quarter"));
 				Item tickets = new Item("tickets");
 				game.getCurrentRoom().addItem(tickets);
+				setUsed(true);
 			}
 		}
 	}

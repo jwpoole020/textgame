@@ -52,10 +52,9 @@ public class game {
 						System.out.println("That room is locked");
 					} else {
 						currentRoom = nextRoom;
-						System.out.println(currentRoom);
 					}
 				} else {
-					System.out.println("Can't go that way.");
+					print("Can't go that way.");
 				}
 				break;
 			case "take":
@@ -70,11 +69,13 @@ public class game {
 				
 				break;
 			case "i":
+				print("Inventory:");
 				if(inventory.isEmpty()) {
-					System.out.println("Nothing");
+					print("Nothing");
 				} else { 
 					for(Item i : inventory)
 						System.out.println(i);
+					print("");
 				}
 				break;
 			case "look":

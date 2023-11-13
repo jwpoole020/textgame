@@ -23,12 +23,15 @@ public class World {
 		Room backStage = new Room("BACKSTAGE");
 		Room lounge = new Room("LOUNGE");
 		Room arcade = new Room("ARCADE");
+		Room exit = new Room("EXIT");
 		
 		populateMap("rooms.txt");
 		
 		lobby.addExit(theatre, 'n');
 		lobby.addExit(hallway, 'w');
 		lobby.addExit(kitchen, 'e');
+		lobby.addExit(exit, 's');
+		exit.setLocked(true);
 		Item bottle = new Bottle();
 		lobby.addItem(bottle );
 		bottle.setDesc("A bottle of Dr. Pepper soda.");
@@ -67,14 +70,14 @@ public class World {
 		
 		alleyway.addExit(theatre, 'n');
 		alleyway.addExit(hallway, 'e');
-		Item movie = new Item("movie");
+		Item movie = new Movie();
 		alleyway.addItem(movie);
 		movie.setDesc("An old movie reel.");
 		alleyway.setLocked(true);
 		
 		lounge.addExit(arcade, 'w');
 		lounge.addExit(hallway,'n');
-		Item quarter = new Item("quarter");
+		Item quarter = new Quarter();
 		quarter.setDesc("A shiny quarter worth $0.25");
 		lounge.addItem(quarter);
 		lounge.setLocked(true);
