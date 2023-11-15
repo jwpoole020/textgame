@@ -41,7 +41,7 @@ public class World {
 		theatre.addExit(backStage, 'n');
 		Item doorkey = new DoorKey();
 		theatre.addItem(doorkey);
-		doorkey.setDesc("An old, greasy key.");
+		doorkey.setDesc("An old key.");
 		
 		hallway.addExit(lobby, 'e');
 		hallway.addExit(alleyway, 'w');
@@ -56,6 +56,7 @@ public class World {
 		maintence.addItem(projector);
 		
 		kitchen.addExit(lobby, 'w');
+		kitchen.setLocked(true);
 		Item bag = new Bag();
 		kitchen.addItem(bag);
 		bag.setDesc("A bag full of popcorn.");
@@ -64,9 +65,9 @@ public class World {
 		largekey.setDesc("A large silver key.");
 		
 		bathroom.addExit(hallway, 's');
-		Item newspaper = new Item("newspaper");
+		Item newspaper = new Newspaper();
 		bathroom.addItem(newspaper);
-		newspaper.setDesc("A crumpled up newspaper from last week.");
+		newspaper.setDesc("A crumpled up newspaper.");
 		
 		alleyway.addExit(theatre, 'n');
 		alleyway.addExit(hallway, 'e');
