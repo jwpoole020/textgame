@@ -46,7 +46,7 @@ public class Item implements Serializable{
 	}
 	
 	public void use() {
-		System.out.println("You cant use this item...yet.");
+		game.print("You cant use this item...yet.");
 	}
 	
 	public void take() {

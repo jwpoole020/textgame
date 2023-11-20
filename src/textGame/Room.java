@@ -17,13 +17,23 @@ public class Room implements Serializable{
 	private String roomID;
 	
 	private HashMap<String, Item> roomItems;
+	private HashMap<String, NPC> roomNPCs;
 	
 	public Room(String n) {
 		name = n;
 		roomID = n;
 		roomItems = new HashMap<String, Item>();
+		roomNPCs = new HashMap<String, NPC>();
 		locked = false;
 		World.rooms.put(name, this);
+	}
+	
+	public void addNPC(NPC npc) {
+		roomNPCs.put(npc.getName(), npc);
+	}
+	
+	public NPC getNPC(String name) {
+		return roomNPCs.get(name);
 	}
 	
 	public String getName() {

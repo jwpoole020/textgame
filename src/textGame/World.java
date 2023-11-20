@@ -36,6 +36,11 @@ public class World {
 		lobby.addItem(bottle );
 		bottle.setDesc("A bottle of Dr. Pepper soda.");
 		
+		NPC puppy = new Puppy();
+		lobby.addNPC(puppy);
+		NPC zombie= new Zombie();
+		lobby.addNPC(zombie);
+		
 		theatre.addExit(lobby, 's');
 		theatre.addExit(alleyway, 'w');
 		theatre.addExit(backStage, 'n');

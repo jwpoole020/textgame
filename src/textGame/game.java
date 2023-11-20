@@ -13,7 +13,7 @@ public class game {
 
 	private static Room currentRoom;
 	public static ArrayList<Item> inventory = new ArrayList<Item>();
-
+	public static Scanner scan=new Scanner(System.in);
 	
 	public static Room getCurrentRoom() {
 		return currentRoom; 
@@ -21,25 +21,19 @@ public class game {
 			
 	public static void main(String[] args) {
 		
-		Scanner scan=new Scanner(System.in);
-		String command;
 		
+		NPC npc;
+		Item i;
+		String command="a";
+		String itemName;
 		currentRoom = World.buildWorld();
-		
-		game.print("You are trapped in an old movie theater.  Try to find a way to escape.");
+		print("You are trapped in an old movie theater.  Try to find a way to escape.");
 		do {
-			String itemName="";
-			String[] words;
 			print(currentRoom.getDesc());
-			String input=scan.nextLine();
-			if(input.contains(" ")) {
-				words= input.split(" ");
-				command= words[0];
-				itemName= words[1];
-			} else
-				command=input;
-			
-			switch(command) {
+			print("What you gonna do: ");
+			command=scan.nextLine();
+			String[] words = command.split(" ");
+			switch(words[0]) {
 			case "e":
 			case "w":
 			case "n":
@@ -58,43 +52,62 @@ public class game {
 				}
 				break;
 			case "take":
-				if(!itemName.equals("")) {
-					if(currentRoom.hasItem(itemName)) {
-						Item item = currentRoom.getItem(itemName);
-						item.take();
-					} else {
-						System.out.println("There is no "+itemName+"!");
-					}
+				itemName = words[1];
+				if(currentRoom.hasItem(itemName)) {
+					inventory.add(currentRoom.removeItem(itemName));
+					print("You picked up "+itemName+".");
+				} else {
+					print("There is no "+itemName+"!");
 				}
-				
 				break;
 			case "i":
 				print("Inventory:");
 				if(inventory.isEmpty()) {
 					print("Nothing");
 				} else { 
-					for(Item i : inventory)
-						System.out.println(i);
+					for(Item z : inventory)
+						System.out.println(z);
 					print("");
 				}
 				break;
 			case "look":
-				if(currentRoom.hasItem(itemName) ) {
-					currentRoom.getItem(itemName).look();
-				} else if(getItem(itemName)!=null) {
-					getItem(itemName).look();
-				}
-				break; 
+				if(currentRoom.getItem(words[1])!=null || inventory.contains(getItem(words[1]))) {
+					i = getItem(words[1]);
+					if (i == null)
+						i = currentRoom.getItem(words[1]);
+					if (i == null)
+						print("There is no "+words[1]+"!");
+					else 
+						i.look();
+				} else if(currentRoom.getNPC(words[1]) != null) {
+					npc = currentRoom.getNPC(words[1]);
+					npc.look();
+				} else
+					print("There is no "+words[1]+"!");
+			
+				
+				break;
 			case "use":
-				if(getItem(itemName)!=null){
-					getItem(itemName).use();
-					
-				} else if(currentRoom.hasItem(itemName)) {
-					currentRoom.getItem(itemName).use();
-				} 
+				i = getItem(words[1]);
+				if (i == null )
+					print("You don't have the"+words[1]+".");
+				else
+					i.use();
+				break;
+			case "talk":
+				npc=currentRoom.getNPC(words[1]);
+				npc.talk();
+				break;
+			case "give":
+				npc=currentRoom.getNPC(words[1]);
+				i = getItem(words[2]);
+				if (i == null )
+					print("You don't have "+words[2]+".");
+				else
+					npc.give(i);
 				break;
 			case "x":
-				System.out.println("See ya.");
+				print("See ya.");
 				break;
 			case "save":
 				saveGame();
@@ -103,7 +116,7 @@ public class game {
 				loadGame();
 				break;
 			default:
-				System.out.println("Error");
+				print("Error");
 			}
 		} while(!command.equals("x"));
 		scan.close();
@@ -137,6 +150,7 @@ public class game {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static void loadGame() {
 		try {
 			ObjectInputStream stream = new ObjectInputStream(new FileInputStream(new File("save")));
@@ -158,13 +172,13 @@ public class game {
 		if(currentRoom.hasItem(i)) {
 			Item item = currentRoom.getItem(i);
 			if(item.isHeavy())
-				System.out.println("Thats too heavy to carry around.");
+				print("Thats too heavy to carry around.");
 			else {
 				inventory.add(currentRoom.removeItem(i));
-				System.out.println("You picked up "+i+"!");
+				print("You picked up "+i+"!");
 				}
 			} else {
-				System.out.println("There is no "+i+"!");
+				print("There is no "+i+"!");
 			}
 	}
 	
@@ -176,7 +190,7 @@ public class game {
 		try {
 			Scanner findRoom = new Scanner(new File(s));
 		} catch (FileNotFoundException ex) {
-			System.out.println("File not found.");
+			print("File not found.");
 		}
 	}
 	
