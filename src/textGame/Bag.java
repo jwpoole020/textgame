@@ -6,6 +6,20 @@ public class Bag extends Item{
 		super("bag");
 	}
 	
+	@Override
+	public void take() {
+		super.take();
+		switch(game.getCurrentRoom().getRoomID()) {
+		case "KITCHEN":
+			game.getCurrentRoom().setRoomID("KITCHEN_B");
+			break;
+		case "KITCHEN_A":
+			game.getCurrentRoom().setRoomID("KITCHEN_C");
+			break;
+		}
+	}
+	
+	@Override
 	public void use() {
 		if(game.getCurrentRoom().getName().equals("THEATER")  && World.rooms.get("MAINTENSE").getItem("projector").isUsed()) {			
 			game.print("You sit down with your bag of popcorn and watch the movie.  The popcorn is stale and the movie is an old zombie movie, but you still enjoy it.  "

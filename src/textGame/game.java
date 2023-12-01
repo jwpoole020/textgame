@@ -9,7 +9,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Scanner;
-public class game {
+import javax.swing.*;		//swing gui package
+import java.awt.*; 			//advance window toolkit
+import java.awt.event.*;	//awt event package (to program buttons)
+
+public class game extends JFrame implements ActionListener{
 
 	private static Room currentRoom;
 	public static ArrayList<Item> inventory = new ArrayList<Item>();
@@ -20,7 +24,6 @@ public class game {
 	}
 			
 	public static void main(String[] args) {
-		
 		
 		NPC npc;
 		Item i;
@@ -193,5 +196,23 @@ public class game {
 			print("File not found.");
 		}
 	}
+	
+	
+	public void makeWindow() {
+		setTitle("Example");
+		setSize(500, 300);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
 	
 }

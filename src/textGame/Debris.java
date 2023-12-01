@@ -1,5 +1,5 @@
 package textGame;
 
-public class Chest {
+public class Debris {
 
 }

@@ -6,6 +6,8 @@ public class Projector extends Item{
 		super("projector");
 	}
 	
+	
+	@Override
 	public void use() {
 		if(game.getCurrentRoom().getName().equals("MAINTENCE")) {
 			if(game.getItem("movie")!=null) {
@@ -14,6 +16,7 @@ public class Projector extends Item{
 				}else {
 					game.print("You put the movie reel in the project. An old movie starts playing on the screen.");
 					game.removeItem(game.getItem("movie"));
+					game.getCurrentRoom().setRoomID("MAINTENSE_A");
 					setUsed(true);
 				}
 			}

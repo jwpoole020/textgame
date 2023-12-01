@@ -35,11 +35,15 @@ public class World {
 		Item bottle = new Bottle();
 		lobby.addItem(bottle );
 		bottle.setDesc("A bottle of Dr. Pepper soda.");
+		Item debris = new Item("debris");
+		debris.setDesc("Some wooden boards are blocking the door to the exit.  They are nailed on pretty good.");
+		debris.setHeavy(true);
+		lobby.addItem(debris);
 		
 		NPC puppy = new Puppy();
 		lobby.addNPC(puppy);
 		NPC zombie= new Zombie();
-		lobby.addNPC(zombie);
+		alleyway.addNPC(zombie);
 		
 		theatre.addExit(lobby, 's');
 		theatre.addExit(alleyway, 'w');

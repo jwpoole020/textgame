@@ -6,6 +6,13 @@ public class Newspaper extends Item{
 		super("newspaper");
 	}
 	
+	@Override
+	public void take() {
+		super.take();
+		game.getCurrentRoom().setRoomID("BATHROOM_A");
+	}
+	
+	@Override
 	public void use() {
 		if(isUsed()) {
 			game.print("A newpaper that was published in the 80's.");
@@ -15,7 +22,7 @@ public class Newspaper extends Item{
 					+ "relavence to you.");
 			Item greasyKey = new greasyKey();
 			greasyKey.setDesc("A greasy key that smells like popcorn.");
-			game.getCurrentRoom().addItem(greasyKey);
+			game.inventory.add(greasyKey);
 		}
 	}
 }

@@ -5,7 +5,7 @@ public class Bottle extends Item{
 	public Bottle() {
 		super ("bottle");
 	}
-	
+	@Override
 	public void take() {
 		super.take();
 		switch(game.getCurrentRoom().getRoomID()) {
@@ -17,7 +17,7 @@ public class Bottle extends Item{
 			break;
 		}
 	}
-	
+	@Override
 	public void use() {
 		if(isUsed()) {
 			game.print("An empty bottle that used to be full of soda.");

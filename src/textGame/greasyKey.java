@@ -6,6 +6,8 @@ public class greasyKey extends Item{
 		super("greasyKey");
 	}
 	
+	
+	@Override
 	public void use() {
 		if(game.getCurrentRoom().getName().equals("LOBBY")) {
 			World.rooms.get("KITCHEN").setLocked(false);

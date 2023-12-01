@@ -5,7 +5,13 @@ public class Quarter extends Item{
 	public Quarter() {
 		super("quarter");
 	}
+	@Override
+	public void take() {
+		super.take();
+		game.getCurrentRoom().setRoomID("LOUNGE_A");
+	}
 	
+	@Override
 	public void use() {
 		if(game.getCurrentRoom().getName().equals("ARCADE")) {
 			game.print("You stick you quarter in the machine and start to play an old top down shooter game. "

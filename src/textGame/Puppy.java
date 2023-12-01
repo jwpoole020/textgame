@@ -41,6 +41,8 @@ public class Puppy extends NPC{
 					game.print("The puppy bites you. You deserve it.");
 					hasTalked++;
 					break;
+				default:
+					game.print("Error");
 			}
 		}else if(hasTalked==1) {
 			switch(option) {
