@@ -1,11 +1,15 @@
 package textGame;
 
+import java.util.InputMismatchException;
+
 public class NPC {
 
 	private String name;
 	private String desc;
 	protected int hasTalked;
 	private int hp;
+	public static Boolean inConvo = false;
+	public static String npcName;
 	//talk, give, attack, say, getResponce
 	
 	
@@ -46,13 +50,13 @@ public class NPC {
 	 * call response method with players choice as the parameter.
 	 */
 	public void getResponse(String[] options) {
+		
 		for(int i=0; i<options.length; i++) {
 			game.print("Option "+(i+1)+": "+options[i]);
 		}
 		game.print("Enter an option (1-"+options.length+"): ");
-		int choice = game.scan.nextInt();
-		game.scan.nextLine(); //flush input buffer
-		response(choice);
+		inConvo=true;
+		npcName=name;
 	}
 	
 	public void give(Item i) {
@@ -63,4 +67,14 @@ public class NPC {
 		
 	}
 	
+	public static boolean getConvo() {
+		return inConvo;
+	}
+	
+	public static void setConvo(boolean c) {
+		inConvo=c;
+	}
+	public static String getnpc() {
+		return npcName;
+	}
 }

@@ -3,7 +3,7 @@ package textGame;
 public class Zombie extends NPC{
 
 	public Zombie() {
-		super("zombie", "A hideous zombie groans at you.");
+		super("zombie", "A hideous zombie groans at you.  It looks like he's wearing an employee's uniform.");
 	}
 	
 	public void talk() {

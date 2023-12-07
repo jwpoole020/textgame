@@ -7,6 +7,7 @@ public class Puppy extends NPC{
 	}
 	@Override
 	public void talk() {
+
 		String[] options = {
 				"Yes you are! Who's a good boy?",
 				"Ew, no. You're actually kinda hideous."
@@ -56,10 +57,13 @@ public class Puppy extends NPC{
 						+ "(The puppy runs away and doesn't come back.");
 				hasTalked++;
 				break;
+			default:
+				game.print("Error");
 			}
 		} else if(hasTalked>=2) {
 			say("\"Yip!\" The puppy wags his tail.");
 		}
+		inConvo=false;
 	}
 	
 }
