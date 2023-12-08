@@ -5,7 +5,7 @@ public class Zombie extends NPC{
 	public Zombie() {
 		super("zombie", "A hideous zombie groans at you.  It looks like he's wearing an employee's uniform. His name tag says Gregory.");
 	}
-	
+	@Override
 	public void talk() {
 		say("I'm a gross zombie.");
 		String[] options = {
@@ -14,19 +14,20 @@ public class Zombie extends NPC{
 		};
 		getResponse(options);
 	}
-	
+	@Override
 	public void response(int choice) {
 		switch (choice) {
 		case 1:
 			say("Well you don't have to be a jerk about it.");
 			game.print("The zombie bites your arm.");
+			hasTalked++;
 			break;
 		case 2:
 			say("Well thanks. I needed to hear that.");
 			break;
 		}
 	}
-	
+	@Override
 	public void give(Item i) {
 		if(i.getName().equals("tickets")) {
 			game.inventory.remove(i);
@@ -38,7 +39,8 @@ public class Zombie extends NPC{
 		} else if(i.getName().equals("bottle")) {
 			if(i.isUsed())
 				say("You drank it all. What the heck.");
-		} else
-			say("Thanks, I was pretty thirsty.");
+			else
+				say("Thanks, I was pretty thirsty.");
+		} 
 	}
 }
