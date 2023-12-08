@@ -83,7 +83,7 @@ public class World {
 		Item movie = new Movie();
 		alleyway.addItem(movie);
 		movie.setDesc("An old movie reel.");
-		alleyway.setLocked(true);
+		//alleyway.setLocked(true);
 		
 		lounge.addExit(arcade, 'w');
 		lounge.addExit(hallway,'n');

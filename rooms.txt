@@ -55,10 +55,10 @@ The kitchen smells like popcorn and candy. A large key sits in the sink. The doo
 KITCHEN_C
 The kitchen smells like popcorn and candy. The door to the west leads back to the lobby. 
 #
-MAINTENSE
+MAINTENCE
 The projector room is full of old machines. A projector sits in front of a window facing the theater. It lies still and lifeless. The stairs down take you back to the hallway.
 #
-MAINTENSE_A
+MAINTENCE_A
 The projector room is full of old machines. A projector sits in front of a window facing the theater, playing a movie. The stairs down take you back to the hallway.
 #
 LOUNGE

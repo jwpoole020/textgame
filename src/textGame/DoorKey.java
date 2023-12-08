@@ -25,8 +25,7 @@ public class DoorKey extends Item {
 	public void use() {
 		if(game.getCurrentRoom().getName().equals("HALLWAY")) {
 			game.print("You use the key on the door and it fits perfectly.  The lounge is unlocked.");
-			Room kitchen= game.getCurrentRoom().getExit("e");
-			kitchen.setLocked(false);
+			World.rooms.get("LOUNGE").setLocked(false);
 		} else {
 			game.print("The key doesn't fit any doors here."); 
 		}
