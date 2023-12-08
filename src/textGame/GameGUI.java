@@ -30,7 +30,7 @@ public class GameGUI extends JFrame implements KeyListener {
 		
 		textArea = new JTextArea();
 		textArea.setFont(new Font(null, Font.PLAIN, 18));
-		textArea.setRows(15);
+		textArea.setRows(29);
 		textArea.setColumns(30);
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
@@ -39,7 +39,7 @@ public class GameGUI extends JFrame implements KeyListener {
 		DefaultCaret caret = (DefaultCaret) textArea.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		JScrollPane scroll = new JScrollPane(textArea);
-		l1.add(scroll, BorderLayout.NORTH);
+		l1.add(scroll, BorderLayout.CENTER);
 		
 		
 		input= new JTextField();
@@ -47,7 +47,7 @@ public class GameGUI extends JFrame implements KeyListener {
 		input.addKeyListener(this);
 		
 		JTextArea wish = new JTextArea();
-		wish.setFont(new Font(null, Font.PLAIN, 18));
+		wish.setFont(new Font(null, Font.BOLD, 26));
 		wish.setRows(1);
 		wish.setColumns(1);
 		wish.setLineWrap(true);

@@ -27,7 +27,7 @@ public class game {
 		currentRoom = World.buildWorld();
 		gui = new GameGUI();
 		print("You are trapped in an old movie theater.  Try to find a way to escape.");
-		print(currentRoom.getDesc()+"\nWhat you gonna do: ");
+		print(currentRoom.getDesc());
 		
 	}
 	
