@@ -24,6 +24,7 @@ public class Puppy extends NPC{
 			getResponse(options);
 		}else {
 			say("\"Yip!\" The puppy wags his tail.");
+			inConvo=false;
 		}
 		
 		
@@ -53,16 +54,14 @@ public class Puppy extends NPC{
 				hasTalked++;
 				break;
 			case 2:
-				say("\"You're a bad person! I don't like you!\" "
-						+ "(The puppy runs away and doesn't come back.");
+				say("\"You're a bad person! I don't like you!\" ");
+				
 				hasTalked++;
 				break;
 			default:
 				game.print("Error");
 			}
-		} else if(hasTalked>=2) {
-			say("\"Yip!\" The puppy wags his tail.");
-		}
+		} 
 		inConvo=false;
 	}
 	

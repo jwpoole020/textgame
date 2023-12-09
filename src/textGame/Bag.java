@@ -21,11 +21,11 @@ public class Bag extends Item{
 	
 	@Override
 	public void use() {
-		if(game.getCurrentRoom().getName().equals("THEATER")  && World.rooms.get("MAINTENSE").getItem("projector").isUsed()) {			
+		if(game.getCurrentRoom().getName().equals("THEATER")  && (World.rooms.get("MAINTENCE").getItem("projector").isUsed())) {			
 			game.print("You sit down with your bag of popcorn and watch the movie.  The popcorn is stale and the movie is an old zombie movie, but you still enjoy it.  "
 					+ "When the movie is over you hear a click sound from behind the screen.");
 			game.removeItem(game.getItem("bag"));
-			World.rooms.get("backStage").setLocked(false);
+			World.rooms.get("BACKSTAGE").setLocked(false);
 		} else {
 			game.print("This bag of popcorn looks delicous but you shouldn't eat it just yet.");
 		}

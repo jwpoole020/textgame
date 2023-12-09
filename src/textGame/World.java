@@ -67,10 +67,10 @@ public class World {
 		kitchen.addExit(lobby, 'w');
 		kitchen.setLocked(true);
 		Item bag = new Bag();
-		kitchen.addItem(bag);
+		kitchen.addItem(bag);//
 		bag.setDesc("A bag full of popcorn.");
 		Item largekey = new LargeKey();
-		kitchen.addItem(largekey);
+		kitchen.addItem(largekey);//
 		largekey.setDesc("A large silver key.");
 		
 		bathroom.addExit(hallway, 's');

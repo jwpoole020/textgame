@@ -70,7 +70,7 @@ The lounge is fairly nice. All the chairs are in poor condition. The door west l
 ARCADE
 The arcade seems to be run down.  Only one of the machines seems to be turned on. The door west leads back to the lounge.
 #
-BACKSTAGE 
+BACKSTAGE
 A dark room you found in behind the movie screen. A chest sits in the corner. The door south leads to the theater. 
 #
 BACKSTAGE_A
