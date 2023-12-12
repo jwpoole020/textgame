@@ -3,7 +3,7 @@ package textGame;
 public class greasyKey extends Item{
 
 	public greasyKey() {
-		super("greasyKey");
+		super("greasykey");
 	}
 	
 	
